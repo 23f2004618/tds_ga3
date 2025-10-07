@@ -19,6 +19,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest
     - name: Test with pytest
-      run: |
-        export PYTHONPATH=$PYTHONPATH:.
-        python -m pytest
+      env:
+        PYTHONPATH: ${{ github.workspace }}
+      run: python -m pytest
